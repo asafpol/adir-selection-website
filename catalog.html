@@ -252,7 +252,10 @@
     function goPage(page) {
       currentPage = page;
       renderProducts();
-      document.getElementById('catalogGrid').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      var topBar = document.querySelector('.catalog-top-bar');
+      var headerHeight = document.getElementById('header').offsetHeight;
+      var targetY = topBar.getBoundingClientRect().top + window.pageYOffset - headerHeight - 10;
+      window.scrollTo({ top: targetY, behavior: 'smooth' });
     }
 
     function onFilterChange() {
