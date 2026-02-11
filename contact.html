@@ -87,7 +87,10 @@
         </div>
         <div class="contact-form">
           <h3>Send Us a Message</h3>
-          <form id="contactForm" onsubmit="handleSubmit(event)">
+          <form id="contactForm" action="https://formsubmit.co/ajax/sales@adirselection.com" method="POST" onsubmit="handleSubmit(event)">
+            <input type="hidden" name="_subject" value="New Contact Form Submission - ADIR Selection">
+            <input type="hidden" name="_template" value="table">
+            <input type="text" name="_honey" style="display:none">
             <div class="form-row">
               <div class="form-group">
                 <label for="name">Full Name</label>
@@ -110,7 +113,7 @@
               <label for="message">Message</label>
               <textarea id="message" name="message" required placeholder="Tell us about your needs..."></textarea>
             </div>
-            <button type="submit" class="submit-btn">Send Message</button>
+            <button type="submit" class="submit-btn" id="submitBtn">Send Message</button>
           </form>
         </div>
       </div>
@@ -171,14 +174,44 @@
 
     function handleSubmit(e) {
       e.preventDefault();
-      var btn = e.target.querySelector('.submit-btn');
-      btn.textContent = 'Message Sent!';
-      btn.style.background = '#28a745';
-      setTimeout(function() {
-        btn.textContent = 'Send Message';
-        btn.style.background = '';
-        e.target.reset();
-      }, 3000);
+      var form = e.target;
+      var btn = document.getElementById('submitBtn');
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+
+      fetch(form.action, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          name: form.name.value,
+          company: form.company.value,
+          email: form.email.value,
+          phone: form.phone.value,
+          message: form.message.value,
+          _subject: form._subject.value,
+          _template: form._template.value
+        })
+      })
+      .then(function(response) { return response.json(); })
+      .then(function(data) {
+        btn.textContent = 'Message Sent!';
+        btn.style.background = '#28a745';
+        setTimeout(function() {
+          btn.textContent = 'Send Message';
+          btn.style.background = '';
+          btn.disabled = false;
+          form.reset();
+        }, 3000);
+      })
+      .catch(function(error) {
+        btn.textContent = 'Error - Try Again';
+        btn.style.background = '#dc3545';
+        setTimeout(function() {
+          btn.textContent = 'Send Message';
+          btn.style.background = '';
+          btn.disabled = false;
+        }, 3000);
+      });
     }
   </script>
 
