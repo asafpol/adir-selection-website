@@ -1,0 +1,9 @@
+# Source data files
+Website Material/KeepaExport-*.csv
+Website Material/KeepaExport-*.xlsx
+generate-catalog.js
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini

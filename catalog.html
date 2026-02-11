@@ -1,0 +1,302 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Catalog | ADIR Selection</title>
+  <meta name="description" content="Browse our full catalog of premium wholesale fragrances. Filter by brand, audience, and search by name.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header id="header" class="scrolled header-with-logo">
+    <div class="header-logo-bar">
+      <img src="Website Material/Logo/Logo white.png" alt="ADIR Selection" class="header-center-logo">
+    </div>
+    <nav class="container">
+      <div class="nav-brand"></div>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="brands.html">Brands</a>
+        <a href="catalog.html" class="active">Catalog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero" style="padding-top: 220px;">
+    <div class="page-hero-inner container">
+      <h1>Product Catalog</h1>
+    </div>
+    <p>Browse our complete collection of premium fragrances</p>
+  </section>
+
+  <!-- CATALOG -->
+  <section class="section" style="background: var(--cream);">
+    <div class="container">
+      <div class="catalog-layout">
+
+        <!-- SIDEBAR -->
+        <aside class="catalog-sidebar" id="sidebar">
+          <div class="sidebar-section">
+            <h4>Search</h4>
+            <input type="text" class="sidebar-search" id="searchBox" placeholder="Search fragrances...">
+          </div>
+
+          <div class="sidebar-section">
+            <h4>Brand</h4>
+            <div class="brand-list" id="brandList">
+              <!-- Filled by JS -->
+            </div>
+          </div>
+
+          <div class="sidebar-section">
+            <h4>Audience</h4>
+            <div class="audience-list" id="audienceList">
+              <label class="audience-item">
+                <input type="radio" name="audience" value="" checked> All
+              </label>
+              <label class="audience-item">
+                <input type="radio" name="audience" value="men"> Men
+              </label>
+              <label class="audience-item">
+                <input type="radio" name="audience" value="women"> Women
+              </label>
+              <label class="audience-item">
+                <input type="radio" name="audience" value="unisex"> Unisex
+              </label>
+            </div>
+          </div>
+
+          <button class="sidebar-clear" id="clearFilters">Clear All Filters</button>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <div class="catalog-main">
+          <div class="catalog-top-bar">
+            <div class="catalog-count" id="catalogCount"></div>
+            <div class="pagination pagination-top" id="paginationTop"></div>
+          </div>
+          <div class="catalog-grid" id="catalogGrid"></div>
+          <div class="pagination" id="paginationBottom"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-banner">
+    <div class="container">
+      <h2>Interested in Wholesale Pricing?</h2>
+      <p>Contact us for competitive bulk pricing on any products in our catalog.</p>
+      <a href="contact.html" class="cta-btn">Request Pricing</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="Website Material/Logo/Logo white.png" alt="ADIR Selection" class="footer-logo">
+          <p>Your trusted partner in fine fragrance distribution. We bring premium, niche, and designer perfumes to a selected customer base.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Pages</h4>
+          <a href="index.html">Home</a>
+          <a href="about.html">About Us</a>
+          <a href="brands.html">Our Brands</a>
+          <a href="catalog.html">Catalog</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Top Brands</h4>
+          <a href="catalog.html?brand=Lattafa">Lattafa</a>
+          <a href="catalog.html?brand=RASASI">Rasasi</a>
+          <a href="catalog.html?brand=Afnan">Afnan</a>
+          <a href="catalog.html?brand=Al Haramain">Al Haramain</a>
+          <a href="catalog.html?brand=Tom Ford">Tom Ford</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="mailto:sales@adirselection.com">sales@adirselection.com</a>
+          <a href="tel:+97239297040">+972 (0) 3-9297040</a>
+          <a>Tel Aviv, Israel</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2025 ADIR Selection. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="catalog-data.js"></script>
+  <script>
+    // DOM refs
+    var grid = document.getElementById('catalogGrid');
+    var searchBox = document.getElementById('searchBox');
+    var brandListEl = document.getElementById('brandList');
+    var countEl = document.getElementById('catalogCount');
+    var pagTopEl = document.getElementById('paginationTop');
+    var pagBottomEl = document.getElementById('paginationBottom');
+
+    var PAGE_SIZE = 50;
+    var currentPage = 1;
+
+    // Read URL params
+    var urlParams = new URLSearchParams(window.location.search);
+    var urlBrand = urlParams.get('brand') || '';
+
+    // Collect brands with counts
+    var brandCounts = {};
+    products.forEach(function(p) {
+      brandCounts[p.brand] = (brandCounts[p.brand] || 0) + 1;
+    });
+    var brandNames = Object.keys(brandCounts).sort();
+
+    // Build brand radio list
+    var brandHtml = '<label class="brand-item"><input type="radio" name="brand" value=""' + (!urlBrand ? ' checked' : '') + '> All Brands <span class="brand-count">' + products.length + '</span></label>';
+    brandNames.forEach(function(b) {
+      var checked = (b === urlBrand) ? ' checked' : '';
+      brandHtml += '<label class="brand-item"><input type="radio" name="brand" value="' + b + '"' + checked + '> ' + b + ' <span class="brand-count">' + brandCounts[b] + '</span></label>';
+    });
+    brandListEl.innerHTML = brandHtml;
+
+    // Render products
+    function getSelectedBrand() {
+      var el = document.querySelector('input[name="brand"]:checked');
+      return el ? el.value : '';
+    }
+    function getSelectedAudience() {
+      var el = document.querySelector('input[name="audience"]:checked');
+      return el ? el.value : '';
+    }
+
+    function getFiltered() {
+      var search = searchBox.value.toLowerCase().trim();
+      var brand = getSelectedBrand();
+      var audience = getSelectedAudience();
+
+      return products.filter(function(p) {
+        var matchSearch = !search || p.title.toLowerCase().indexOf(search) !== -1 ||
+                          p.brand.toLowerCase().indexOf(search) !== -1 ||
+                          p.scent.toLowerCase().indexOf(search) !== -1;
+        var matchBrand = !brand || p.brand === brand;
+        var aud = p.audience.toLowerCase();
+        var matchAudience = !audience ||
+          (audience === 'men' && (aud === 'men' || aud.indexOf('unisex') !== -1)) ||
+          (audience === 'women' && (aud === 'women' || aud.indexOf('unisex') !== -1)) ||
+          (audience === 'unisex' && aud.indexOf('unisex') !== -1);
+        return matchSearch && matchBrand && matchAudience;
+      });
+    }
+
+    function renderProducts() {
+      var filtered = getFiltered();
+      var totalPages = Math.ceil(filtered.length / PAGE_SIZE);
+      if (currentPage > totalPages) currentPage = totalPages || 1;
+
+      var start = (currentPage - 1) * PAGE_SIZE;
+      var pageItems = filtered.slice(start, start + PAGE_SIZE);
+
+      countEl.textContent = 'Showing ' + (filtered.length === 0 ? 0 : start + 1) + '–' + (start + pageItems.length) + ' of ' + filtered.length + ' products';
+
+      if (filtered.length === 0) {
+        grid.innerHTML = '<div class="no-results"><h3>No products found</h3><p>Try adjusting your search or filters.</p></div>';
+        pagTopEl.innerHTML = '';
+        pagBottomEl.innerHTML = '';
+        return;
+      }
+
+      var html = '';
+      pageItems.forEach(function(p) {
+        var tags = '';
+        if (p.size) tags += '<span class="product-tag">' + escapeHtml(p.size) + '</span>';
+        if (p.audience) tags += '<span class="product-tag">' + escapeHtml(p.audience) + '</span>';
+
+        html += '<a href="product.html?id=' + p.id + '" class="product-card">' +
+          '<img class="product-card-img" src="' + escapeHtml(p.image) + '" alt="' + escapeHtml(p.title) + '" loading="lazy" onerror="this.style.display=\'none\'">' +
+          '<div class="product-card-body">' +
+            '<div class="product-card-brand">' + escapeHtml(p.brand) + '</div>' +
+            '<div class="product-card-title">' + escapeHtml(p.title) + '</div>' +
+            '<div class="product-card-meta">' + tags + '</div>' +
+          '</div>' +
+        '</a>';
+      });
+      grid.innerHTML = html;
+
+      // Pagination
+      if (totalPages <= 1) {
+        pagTopEl.innerHTML = '';
+        pagBottomEl.innerHTML = '';
+        return;
+      }
+      var pagHtml = '';
+      pagHtml += '<button class="pag-btn" onclick="goPage(' + (currentPage - 1) + ')"' + (currentPage === 1 ? ' disabled' : '') + '>&laquo; Previous</button>';
+      pagHtml += '<span class="pag-info">Page ' + currentPage + ' of ' + totalPages + '</span>';
+      pagHtml += '<button class="pag-btn" onclick="goPage(' + (currentPage + 1) + ')"' + (currentPage === totalPages ? ' disabled' : '') + '>Next &raquo;</button>';
+      pagTopEl.innerHTML = pagHtml;
+      pagBottomEl.innerHTML = pagHtml;
+    }
+
+    function goPage(page) {
+      currentPage = page;
+      renderProducts();
+      document.getElementById('catalogGrid').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function onFilterChange() {
+      currentPage = 1;
+      renderProducts();
+    }
+
+    function escapeHtml(str) {
+      var div = document.createElement('div');
+      div.textContent = str;
+      return div.innerHTML;
+    }
+
+    // Event listeners
+    searchBox.addEventListener('input', onFilterChange);
+    document.querySelectorAll('input[name="brand"]').forEach(function(r) {
+      r.addEventListener('change', onFilterChange);
+    });
+    document.querySelectorAll('input[name="audience"]').forEach(function(r) {
+      r.addEventListener('change', onFilterChange);
+    });
+
+    // Clear filters
+    document.getElementById('clearFilters').addEventListener('click', function() {
+      searchBox.value = '';
+      document.querySelector('input[name="brand"][value=""]').checked = true;
+      document.querySelector('input[name="audience"][value=""]').checked = true;
+      onFilterChange();
+    });
+
+    // Initial render
+    renderProducts();
+
+    // Shared UI scripts
+    document.getElementById('menuToggle').addEventListener('click', function() {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+    document.querySelectorAll('.nav-links a').forEach(function(link) {
+      link.addEventListener('click', function() { document.getElementById('navLinks').classList.remove('open'); });
+    });
+    window.addEventListener('scroll', function() {
+      document.getElementById('header').classList.toggle('scrolled', window.scrollY > 50);
+    });
+  </script>
+
+</body>
+</html>
