@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -7,7 +7,7 @@
   <meta name="description" content="Contact ADIR Selection for wholesale fragrance inquiries. We distribute perfumes to a selected group of customers.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Heebo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -20,12 +20,13 @@
     <nav class="container">
       <div class="nav-brand"></div>
       <div class="nav-links" id="navLinks">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="brands.html">Brands</a>
-        <a href="catalog.html">Catalog</a>
-        <a href="contact.html" class="active">Contact</a>
+        <a href="index.html" data-i18n="nav.home">Home</a>
+        <a href="about.html" data-i18n="nav.about">About</a>
+        <a href="brands.html" data-i18n="nav.brands">Brands</a>
+        <a href="catalog.html" data-i18n="nav.catalog">Catalog</a>
+        <a href="contact.html" class="active" data-i18n="nav.contact">Contact</a>
       </div>
+      <button class="lang-toggle" id="langToggle" onclick="toggleLanguage()" aria-label="Switch language">עב</button>
       <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
         <span></span><span></span><span></span>
       </button>
@@ -35,9 +36,9 @@
   <!-- PAGE HERO -->
   <section class="page-hero" style="padding-top: 220px;">
     <div class="page-hero-inner container">
-      <h1>Contact Us</h1>
+      <h1 data-i18n="contact.hero.title">Contact Us</h1>
     </div>
-    <p>We distribute perfumes to a selected group of customers. Contact us to become a customer.</p>
+    <p data-i18n="contact.hero.subtitle">We distribute perfumes to a selected group of customers. Contact us to become a customer.</p>
   </section>
 
   <!-- CONTACT -->
@@ -45,15 +46,15 @@
     <div class="container">
       <div class="contact-grid fade-in">
         <div class="contact-info">
-          <h3>Get In Touch</h3>
+          <h3 data-i18n="contact.info.title">Get In Touch</h3>
           <div class="gold-line"></div>
-          <p>We distribute perfumes to a selected group of customers. Contact us to become a customer and gain access to our exclusive portfolio of premium fragrance brands.</p>
+          <p data-i18n="contact.info.text">We distribute perfumes to a selected group of customers. Contact us to become a customer and gain access to our exclusive portfolio of premium fragrance brands.</p>
           <div class="contact-item">
             <div class="contact-icon">
               <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.21 2.2z"/></svg>
             </div>
             <div class="contact-item-text">
-              <h4>Phone</h4>
+              <h4 data-i18n="contact.phone">Phone</h4>
               <p>+972 (0) 3-9297040</p>
             </div>
           </div>
@@ -62,7 +63,7 @@
               <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
             </div>
             <div class="contact-item-text">
-              <h4>Email</h4>
+              <h4 data-i18n="contact.email">Email</h4>
               <p><a href="mailto:sales@adirselection.com" style="color: var(--gold);">sales@adirselection.com</a></p>
             </div>
           </div>
@@ -71,7 +72,7 @@
               <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
             </div>
             <div class="contact-item-text">
-              <h4>Address</h4>
+              <h4 data-i18n="contact.address">Address</h4>
               <p>ADIR SELECTION LTD.<br>5 Yuval Neeman st<br>Tel Aviv 6967172<br>Israel</p>
             </div>
           </div>
@@ -80,40 +81,40 @@
               <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg>
             </div>
             <div class="contact-item-text">
-              <h4>Company Number</h4>
+              <h4 data-i18n="contact.company.number">Company Number</h4>
               <p>517057598</p>
             </div>
           </div>
         </div>
         <div class="contact-form">
-          <h3>Send Us a Message</h3>
+          <h3 data-i18n="contact.form.title">Send Us a Message</h3>
           <form id="contactForm" action="https://formsubmit.co/ajax/sales@adirselection.com" method="POST" onsubmit="handleSubmit(event)">
             <input type="hidden" name="_subject" value="New Contact Form Submission - ADIR Selection">
             <input type="hidden" name="_template" value="table">
             <input type="text" name="_honey" style="display:none">
             <div class="form-row">
               <div class="form-group">
-                <label for="name">Full Name</label>
-                <input type="text" id="name" name="name" required placeholder="Your name">
+                <label for="name" data-i18n="contact.form.name">Full Name</label>
+                <input type="text" id="name" name="name" required placeholder="Your name" data-i18n-placeholder="contact.form.name.placeholder">
               </div>
               <div class="form-group">
-                <label for="company">Company</label>
-                <input type="text" id="company" name="company" placeholder="Your company">
+                <label for="company" data-i18n="contact.form.company">Company</label>
+                <input type="text" id="company" name="company" placeholder="Your company" data-i18n-placeholder="contact.form.company.placeholder">
               </div>
             </div>
             <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" required placeholder="your@email.com">
+              <label for="email" data-i18n="contact.form.email">Email</label>
+              <input type="email" id="email" name="email" required placeholder="your@email.com" data-i18n-placeholder="contact.form.email.placeholder">
             </div>
             <div class="form-group">
-              <label for="phone">Phone</label>
-              <input type="tel" id="phone" name="phone" placeholder="Your phone number">
+              <label for="phone" data-i18n="contact.form.phone">Phone</label>
+              <input type="tel" id="phone" name="phone" placeholder="Your phone number" data-i18n-placeholder="contact.form.phone.placeholder">
             </div>
             <div class="form-group">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" required placeholder="Tell us about your needs..."></textarea>
+              <label for="message" data-i18n="contact.form.message">Message</label>
+              <textarea id="message" name="message" required placeholder="Tell us about your needs..." data-i18n-placeholder="contact.form.message.placeholder"></textarea>
             </div>
-            <button type="submit" class="submit-btn" id="submitBtn">Send Message</button>
+            <button type="submit" class="submit-btn" id="submitBtn" data-i18n="contact.form.submit">Send Message</button>
           </form>
         </div>
       </div>
@@ -126,18 +127,18 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <img src="Website Material/Logo/Logo white.png" alt="ADIR Selection" class="footer-logo">
-          <p>Your trusted partner in fine fragrance distribution. We bring premium, niche, and designer perfumes to a selected customer base.</p>
+          <p data-i18n="footer.tagline">Your trusted partner in fine fragrance distribution. We bring premium, niche, and designer perfumes to a selected customer base.</p>
         </div>
         <div class="footer-col">
-          <h4>Pages</h4>
-          <a href="index.html">Home</a>
-          <a href="about.html">About Us</a>
-          <a href="brands.html">Our Brands</a>
-          <a href="catalog.html">Catalog</a>
-          <a href="contact.html">Contact</a>
+          <h4 data-i18n="footer.pages">Pages</h4>
+          <a href="index.html" data-i18n="footer.home">Home</a>
+          <a href="about.html" data-i18n="footer.about">About Us</a>
+          <a href="brands.html" data-i18n="footer.brands">Our Brands</a>
+          <a href="catalog.html" data-i18n="footer.catalog">Catalog</a>
+          <a href="contact.html" data-i18n="footer.contact">Contact</a>
         </div>
         <div class="footer-col">
-          <h4>Top Brands</h4>
+          <h4 data-i18n="footer.topbrands">Top Brands</h4>
           <a href="catalog.html?brand=Lattafa">Lattafa</a>
           <a href="catalog.html?brand=RASASI">Rasasi</a>
           <a href="catalog.html?brand=Afnan">Afnan</a>
@@ -145,18 +146,19 @@
           <a href="catalog.html?brand=Tom Ford">Tom Ford</a>
         </div>
         <div class="footer-col">
-          <h4>Contact</h4>
+          <h4 data-i18n="footer.contactheader">Contact</h4>
           <a href="mailto:sales@adirselection.com">sales@adirselection.com</a>
           <a href="tel:+97239297040">+972 (0) 3-9297040</a>
-          <a>Tel Aviv, Israel</a>
+          <a data-i18n="footer.location">Tel Aviv, Israel</a>
         </div>
       </div>
-      <div class="footer-bottom">
+      <div class="footer-bottom" data-i18n="footer.copyright">
         &copy; 2025 ADIR Selection. All Rights Reserved.
       </div>
     </div>
   </footer>
 
+  <script src="translations.js"></script>
   <script>
     document.getElementById('menuToggle').addEventListener('click', function() {
       document.getElementById('navLinks').classList.toggle('open');
@@ -176,7 +178,7 @@
       e.preventDefault();
       var form = e.target;
       var btn = document.getElementById('submitBtn');
-      btn.textContent = 'Sending...';
+      btn.textContent = t('contact.form.sending');
       btn.disabled = true;
 
       fetch(form.action, {
@@ -194,20 +196,20 @@
       })
       .then(function(response) { return response.json(); })
       .then(function(data) {
-        btn.textContent = 'Message Sent!';
+        btn.textContent = t('contact.form.sent');
         btn.style.background = '#28a745';
         setTimeout(function() {
-          btn.textContent = 'Send Message';
+          btn.textContent = t('contact.form.submit');
           btn.style.background = '';
           btn.disabled = false;
           form.reset();
         }, 3000);
       })
       .catch(function(error) {
-        btn.textContent = 'Error - Try Again';
+        btn.textContent = t('contact.form.error');
         btn.style.background = '#dc3545';
         setTimeout(function() {
-          btn.textContent = 'Send Message';
+          btn.textContent = t('contact.form.submit');
           btn.style.background = '';
           btn.disabled = false;
         }, 3000);

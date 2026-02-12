@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -7,7 +7,7 @@
   <meta name="description" content="View product details - Adir Selection premium fragrance wholesale distributor.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Heebo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <style>
     /* Product Detail Styles */
@@ -192,12 +192,13 @@
     <nav class="container">
       <div class="nav-brand"></div>
       <div class="nav-links" id="navLinks">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="brands.html">Brands</a>
-        <a href="catalog.html" class="active">Catalog</a>
-        <a href="contact.html">Contact</a>
+        <a href="index.html" data-i18n="nav.home">Home</a>
+        <a href="about.html" data-i18n="nav.about">About</a>
+        <a href="brands.html" data-i18n="nav.brands">Brands</a>
+        <a href="catalog.html" class="active" data-i18n="nav.catalog">Catalog</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
       </div>
+      <button class="lang-toggle" id="langToggle" onclick="toggleLanguage()" aria-label="Switch language">עב</button>
       <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
         <span></span><span></span><span></span>
       </button>
@@ -207,7 +208,7 @@
   <!-- PAGE HERO -->
   <section class="page-hero" style="padding: 220px 0 50px;">
     <div class="page-hero-inner container">
-      <h1 id="heroTitle">Product Details</h1>
+      <h1 id="heroTitle" data-i18n="product.hero.title">Product Details</h1>
     </div>
   </section>
 
@@ -221,7 +222,7 @@
   <!-- RELATED PRODUCTS -->
   <section class="section" id="relatedSection" style="display: none;">
     <div class="container">
-      <h2 class="section-title">More from <span id="relatedBrand"></span></h2>
+      <h2 class="section-title"><span data-i18n="product.related">More from</span> <span id="relatedBrand"></span></h2>
       <div class="gold-line"></div>
       <div class="related-grid" id="relatedGrid"></div>
     </div>
@@ -230,9 +231,9 @@
   <!-- CTA -->
   <section class="cta-banner">
     <div class="container">
-      <h2>Interested in This Product?</h2>
-      <p>Contact us for wholesale pricing and availability.</p>
-      <a href="contact.html" class="cta-btn">Request Pricing</a>
+      <h2 data-i18n="cta.product.title">Interested in This Product?</h2>
+      <p data-i18n="cta.product.text">Contact us for wholesale pricing and availability.</p>
+      <a href="contact.html" class="cta-btn" data-i18n="cta.product.btn">Request Pricing</a>
     </div>
   </section>
 
@@ -242,18 +243,18 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <img src="Website Material/Logo/Logo white.png" alt="ADIR Selection" class="footer-logo">
-          <p>Your trusted partner in fine fragrance distribution. We bring premium, niche, and designer perfumes to a selected customer base.</p>
+          <p data-i18n="footer.tagline">Your trusted partner in fine fragrance distribution. We bring premium, niche, and designer perfumes to a selected customer base.</p>
         </div>
         <div class="footer-col">
-          <h4>Pages</h4>
-          <a href="index.html">Home</a>
-          <a href="about.html">About Us</a>
-          <a href="brands.html">Our Brands</a>
-          <a href="catalog.html">Catalog</a>
-          <a href="contact.html">Contact</a>
+          <h4 data-i18n="footer.pages">Pages</h4>
+          <a href="index.html" data-i18n="footer.home">Home</a>
+          <a href="about.html" data-i18n="footer.about">About Us</a>
+          <a href="brands.html" data-i18n="footer.brands">Our Brands</a>
+          <a href="catalog.html" data-i18n="footer.catalog">Catalog</a>
+          <a href="contact.html" data-i18n="footer.contact">Contact</a>
         </div>
         <div class="footer-col">
-          <h4>Top Brands</h4>
+          <h4 data-i18n="footer.topbrands">Top Brands</h4>
           <a href="catalog.html?brand=Lattafa">Lattafa</a>
           <a href="catalog.html?brand=RASASI">Rasasi</a>
           <a href="catalog.html?brand=Afnan">Afnan</a>
@@ -261,18 +262,19 @@
           <a href="catalog.html?brand=Tom Ford">Tom Ford</a>
         </div>
         <div class="footer-col">
-          <h4>Contact</h4>
+          <h4 data-i18n="footer.contactheader">Contact</h4>
           <a href="mailto:sales@adirselection.com">sales@adirselection.com</a>
           <a href="tel:+97239297040">+972 (0) 3-9297040</a>
-          <a>Tel Aviv, Israel</a>
+          <a data-i18n="footer.location">Tel Aviv, Israel</a>
         </div>
       </div>
-      <div class="footer-bottom">
+      <div class="footer-bottom" data-i18n="footer.copyright">
         &copy; 2025 ADIR Selection. All Rights Reserved.
       </div>
     </div>
   </footer>
 
+  <script src="translations.js"></script>
   <script src="catalog-data.js"></script>
   <script>
     // Get product ID from URL
@@ -303,77 +305,89 @@
       '</a>';
     }
 
-    if (!product) {
-      heroTitle.textContent = 'Product Not Found';
-      content.innerHTML = '<div class="not-found">' +
-        '<h2>Product not found</h2>' +
-        '<p>The product you\'re looking for doesn\'t exist or has been removed.</p>' +
-        '<a href="catalog.html" class="hero-btn">Browse Catalog</a>' +
-      '</div>';
-    } else {
-      // Update page title
-      document.title = product.title + ' | Adir Selection';
-      heroTitle.textContent = product.brand;
-
-      // Build gallery
-      var thumbsHtml = '';
-      product.images.forEach(function(img, i) {
-        thumbsHtml += '<div class="gallery-thumb' + (i === 0 ? ' active' : '') + '" onclick="changeImage(\'' + img + '\', this)">' +
-          '<img src="' + escapeHtml(img) + '" alt="View ' + (i + 1) + '">' +
+    function renderProduct() {
+      if (!product) {
+        heroTitle.textContent = t('product.notfound.title');
+        heroTitle.removeAttribute('data-i18n');
+        content.innerHTML = '<div class="not-found">' +
+          '<h2>' + t('product.notfound.title') + '</h2>' +
+          '<p>' + t('product.notfound.text') + '</p>' +
+          '<a href="catalog.html" class="hero-btn">' + t('product.notfound.btn') + '</a>' +
         '</div>';
-      });
+      } else {
+        // Update page title
+        document.title = product.title + ' | Adir Selection';
+        heroTitle.textContent = product.brand;
+        heroTitle.removeAttribute('data-i18n');
 
-      // Build meta
-      var descHtml = '';
-      if (product.description) {
-        descHtml = '<div class="product-description">' +
-          '<h3>Description</h3>' +
-          '<p>' + escapeHtml(product.description) + '</p>' +
-        '</div>';
-      }
-
-      content.innerHTML =
-        '<a href="catalog.html" class="back-link">' +
-          '<svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>' +
-          'Back to Catalog' +
-        '</a>' +
-        '<div class="product-detail">' +
-          '<div class="gallery">' +
-            '<div class="gallery-main"><img id="mainImage" src="' + escapeHtml(product.image) + '" alt="' + escapeHtml(product.title) + '"></div>' +
-            (product.images.length > 1 ? '<div class="gallery-thumbs">' + thumbsHtml + '</div>' : '') +
-          '</div>' +
-          '<div class="product-info-section">' +
-            '<div class="product-brand-label">' + escapeHtml(product.brand) + '</div>' +
-            '<h1 class="product-title">' + escapeHtml(product.title) + '</h1>' +
-            '<div class="product-meta-grid">' +
-              '<div class="product-meta-item"><h4>Size</h4><p>' + escapeHtml(product.size) + '</p></div>' +
-              '<div class="product-meta-item"><h4>Scent</h4><p>' + escapeHtml(product.scent) + '</p></div>' +
-              '<div class="product-meta-item"><h4>For</h4><p>' + escapeHtml(product.audience) + '</p></div>' +
-              '<div class="product-meta-item"><h4>Brand</h4><p>' + escapeHtml(product.brand) + '</p></div>' +
-            '</div>' +
-            descHtml +
-            '<a href="contact.html" class="product-cta">Inquire About This Product</a>' +
-          '</div>' +
-        '</div>';
-
-      // Related products (same brand, exclude current)
-      var related = products.filter(function(p) {
-        return p.brand === product.brand && p.id !== product.id;
-      }).slice(0, 4);
-
-      if (related.length > 0) {
-        var relatedSection = document.getElementById('relatedSection');
-        var relatedGrid = document.getElementById('relatedGrid');
-        document.getElementById('relatedBrand').textContent = product.brand;
-        relatedSection.style.display = '';
-
-        var relatedHtml = '';
-        related.forEach(function(p) {
-          relatedHtml += renderProductCard(p);
+        // Build gallery
+        var thumbsHtml = '';
+        product.images.forEach(function(img, i) {
+          thumbsHtml += '<div class="gallery-thumb' + (i === 0 ? ' active' : '') + '" onclick="changeImage(\'' + img + '\', this)">' +
+            '<img src="' + escapeHtml(img) + '" alt="View ' + (i + 1) + '">' +
+          '</div>';
         });
-        relatedGrid.innerHTML = relatedHtml;
+
+        // Build meta
+        var descHtml = '';
+        if (product.description) {
+          descHtml = '<div class="product-description">' +
+            '<h3>' + t('product.description') + '</h3>' +
+            '<p>' + escapeHtml(product.description) + '</p>' +
+          '</div>';
+        }
+
+        content.innerHTML =
+          '<a href="catalog.html" class="back-link">' +
+            '<svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>' +
+            t('product.back') +
+          '</a>' +
+          '<div class="product-detail">' +
+            '<div class="gallery">' +
+              '<div class="gallery-main"><img id="mainImage" src="' + escapeHtml(product.image) + '" alt="' + escapeHtml(product.title) + '"></div>' +
+              (product.images.length > 1 ? '<div class="gallery-thumbs">' + thumbsHtml + '</div>' : '') +
+            '</div>' +
+            '<div class="product-info-section">' +
+              '<div class="product-brand-label">' + escapeHtml(product.brand) + '</div>' +
+              '<h1 class="product-title">' + escapeHtml(product.title) + '</h1>' +
+              '<div class="product-meta-grid">' +
+                '<div class="product-meta-item"><h4>' + t('product.size') + '</h4><p>' + escapeHtml(product.size) + '</p></div>' +
+                '<div class="product-meta-item"><h4>' + t('product.scent') + '</h4><p>' + escapeHtml(product.scent) + '</p></div>' +
+                '<div class="product-meta-item"><h4>' + t('product.for') + '</h4><p>' + escapeHtml(product.audience) + '</p></div>' +
+                '<div class="product-meta-item"><h4>' + t('product.brand') + '</h4><p>' + escapeHtml(product.brand) + '</p></div>' +
+              '</div>' +
+              descHtml +
+              '<a href="contact.html" class="product-cta">' + t('product.inquire') + '</a>' +
+            '</div>' +
+          '</div>';
+
+        // Related products (same brand, exclude current)
+        var related = products.filter(function(p) {
+          return p.brand === product.brand && p.id !== product.id;
+        }).slice(0, 4);
+
+        if (related.length > 0) {
+          var relatedSection = document.getElementById('relatedSection');
+          var relatedGrid = document.getElementById('relatedGrid');
+          document.getElementById('relatedBrand').textContent = product.brand;
+          relatedSection.style.display = '';
+
+          var relatedHtml = '';
+          related.forEach(function(p) {
+            relatedHtml += renderProductCard(p);
+          });
+          relatedGrid.innerHTML = relatedHtml;
+        }
       }
     }
+
+    renderProduct();
+
+    // Re-render on language change
+    window.addEventListener('languageChanged', function() {
+      renderProduct();
+      applyTranslations();
+    });
 
     // Image gallery
     function changeImage(src, thumbEl) {

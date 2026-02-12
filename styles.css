@@ -2,7 +2,7 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', 'Heebo', sans-serif;
   color: #1a1a2e;
   line-height: 1.6;
   background: #fff;
@@ -68,6 +68,7 @@ nav {
   padding: 18px 24px;
   max-width: 1200px;
   margin: 0 auto;
+  position: relative;
 }
 .nav-brand {
   display: none;
@@ -535,6 +536,8 @@ nav {
   padding: 24px;
   position: sticky;
   top: 90px;
+  max-height: calc(100vh - 110px);
+  overflow-y: auto;
 }
 .sidebar-section { margin-bottom: 28px; }
 .sidebar-section:last-child { margin-bottom: 0; }
@@ -818,6 +821,60 @@ footer {
 }
 .cta-btn:hover { background: var(--navy-light); transform: translateY(-2px); }
 
+/* ===== LANGUAGE TOGGLE ===== */
+.lang-toggle {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.4);
+  color: rgba(255,255,255,0.85);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: all 0.3s;
+  font-family: 'Heebo', 'Inter', sans-serif;
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.lang-toggle:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+/* ===== RTL SUPPORT ===== */
+html[dir="rtl"] body {
+  font-family: 'Heebo', 'Inter', sans-serif;
+}
+html[dir="rtl"] .about-text .gold-line {
+  margin-left: auto;
+  margin-right: 0;
+}
+html[dir="rtl"] .contact-info .gold-line {
+  margin-left: auto;
+  margin-right: 0;
+}
+html[dir="rtl"] .brand-item .brand-count {
+  margin-left: 0;
+  margin-right: auto;
+}
+html[dir="rtl"] .nav-links a::after {
+  left: auto;
+  right: 0;
+}
+html[dir="rtl"] .back-link {
+  flex-direction: row-reverse;
+}
+html[dir="rtl"] .back-link svg {
+  transform: scaleX(-1);
+}
+html[dir="rtl"] .lang-toggle {
+  right: auto;
+  left: 24px;
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1024px) {
   .brands-grid { grid-template-columns: repeat(3, 1fr); }
@@ -835,6 +892,13 @@ footer {
     gap: 16px;
   }
   .nav-links.open { display: flex; }
+  .lang-toggle {
+    right: 60px;
+  }
+  html[dir="rtl"] .lang-toggle {
+    left: 60px;
+    right: auto;
+  }
   .hero h1 { font-size: 2.5rem; }
   .hero p { font-size: 1rem; }
   .page-hero h1 { font-size: 2rem; }

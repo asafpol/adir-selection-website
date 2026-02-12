@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -7,7 +7,7 @@
   <meta name="description" content="Browse our full catalog of premium wholesale fragrances. Filter by brand, audience, and search by name.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Heebo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -20,12 +20,13 @@
     <nav class="container">
       <div class="nav-brand"></div>
       <div class="nav-links" id="navLinks">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="brands.html">Brands</a>
-        <a href="catalog.html" class="active">Catalog</a>
-        <a href="contact.html">Contact</a>
+        <a href="index.html" data-i18n="nav.home">Home</a>
+        <a href="about.html" data-i18n="nav.about">About</a>
+        <a href="brands.html" data-i18n="nav.brands">Brands</a>
+        <a href="catalog.html" class="active" data-i18n="nav.catalog">Catalog</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
       </div>
+      <button class="lang-toggle" id="langToggle" onclick="toggleLanguage()" aria-label="Switch language">עב</button>
       <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
         <span></span><span></span><span></span>
       </button>
@@ -35,9 +36,9 @@
   <!-- PAGE HERO -->
   <section class="page-hero" style="padding-top: 220px;">
     <div class="page-hero-inner container">
-      <h1>Product Catalog</h1>
+      <h1 data-i18n="catalog.hero.title">Product Catalog</h1>
     </div>
-    <p>Browse our complete collection of premium fragrances</p>
+    <p data-i18n="catalog.hero.subtitle">Browse our complete collection of premium fragrances</p>
   </section>
 
   <!-- CATALOG -->
@@ -48,36 +49,36 @@
         <!-- SIDEBAR -->
         <aside class="catalog-sidebar" id="sidebar">
           <div class="sidebar-section">
-            <h4>Search</h4>
-            <input type="text" class="sidebar-search" id="searchBox" placeholder="Search fragrances...">
+            <h4 data-i18n="catalog.search">Search</h4>
+            <input type="text" class="sidebar-search" id="searchBox" placeholder="Search fragrances..." data-i18n-placeholder="catalog.search.placeholder">
           </div>
 
           <div class="sidebar-section">
-            <h4>Brand</h4>
+            <h4 data-i18n="catalog.brand">Brand</h4>
             <div class="brand-list" id="brandList">
               <!-- Filled by JS -->
             </div>
           </div>
 
           <div class="sidebar-section">
-            <h4>Audience</h4>
+            <h4 data-i18n="catalog.audience">Audience</h4>
             <div class="audience-list" id="audienceList">
               <label class="audience-item">
-                <input type="radio" name="audience" value="" checked> All
+                <input type="radio" name="audience" value="" checked> <span data-i18n="catalog.audience.all">All</span>
               </label>
               <label class="audience-item">
-                <input type="radio" name="audience" value="men"> Men
+                <input type="radio" name="audience" value="men"> <span data-i18n="catalog.audience.men">Men</span>
               </label>
               <label class="audience-item">
-                <input type="radio" name="audience" value="women"> Women
+                <input type="radio" name="audience" value="women"> <span data-i18n="catalog.audience.women">Women</span>
               </label>
               <label class="audience-item">
-                <input type="radio" name="audience" value="unisex"> Unisex
+                <input type="radio" name="audience" value="unisex"> <span data-i18n="catalog.audience.unisex">Unisex</span>
               </label>
             </div>
           </div>
 
-          <button class="sidebar-clear" id="clearFilters">Clear All Filters</button>
+          <button class="sidebar-clear" id="clearFilters" data-i18n="catalog.clear">Clear All Filters</button>
         </aside>
 
         <!-- MAIN CONTENT -->
@@ -97,9 +98,9 @@
   <!-- CTA -->
   <section class="cta-banner">
     <div class="container">
-      <h2>Interested in Wholesale Pricing?</h2>
-      <p>Contact us for competitive bulk pricing on any products in our catalog.</p>
-      <a href="contact.html" class="cta-btn">Request Pricing</a>
+      <h2 data-i18n="cta.wholesale.title">Interested in Wholesale Pricing?</h2>
+      <p data-i18n="cta.wholesale.text">Contact us for competitive bulk pricing on any products in our catalog.</p>
+      <a href="contact.html" class="cta-btn" data-i18n="cta.wholesale.btn">Request Pricing</a>
     </div>
   </section>
 
@@ -109,18 +110,18 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <img src="Website Material/Logo/Logo white.png" alt="ADIR Selection" class="footer-logo">
-          <p>Your trusted partner in fine fragrance distribution. We bring premium, niche, and designer perfumes to a selected customer base.</p>
+          <p data-i18n="footer.tagline">Your trusted partner in fine fragrance distribution. We bring premium, niche, and designer perfumes to a selected customer base.</p>
         </div>
         <div class="footer-col">
-          <h4>Pages</h4>
-          <a href="index.html">Home</a>
-          <a href="about.html">About Us</a>
-          <a href="brands.html">Our Brands</a>
-          <a href="catalog.html">Catalog</a>
-          <a href="contact.html">Contact</a>
+          <h4 data-i18n="footer.pages">Pages</h4>
+          <a href="index.html" data-i18n="footer.home">Home</a>
+          <a href="about.html" data-i18n="footer.about">About Us</a>
+          <a href="brands.html" data-i18n="footer.brands">Our Brands</a>
+          <a href="catalog.html" data-i18n="footer.catalog">Catalog</a>
+          <a href="contact.html" data-i18n="footer.contact">Contact</a>
         </div>
         <div class="footer-col">
-          <h4>Top Brands</h4>
+          <h4 data-i18n="footer.topbrands">Top Brands</h4>
           <a href="catalog.html?brand=Lattafa">Lattafa</a>
           <a href="catalog.html?brand=RASASI">Rasasi</a>
           <a href="catalog.html?brand=Afnan">Afnan</a>
@@ -128,18 +129,19 @@
           <a href="catalog.html?brand=Tom Ford">Tom Ford</a>
         </div>
         <div class="footer-col">
-          <h4>Contact</h4>
+          <h4 data-i18n="footer.contactheader">Contact</h4>
           <a href="mailto:sales@adirselection.com">sales@adirselection.com</a>
           <a href="tel:+97239297040">+972 (0) 3-9297040</a>
-          <a>Tel Aviv, Israel</a>
+          <a data-i18n="footer.location">Tel Aviv, Israel</a>
         </div>
       </div>
-      <div class="footer-bottom">
+      <div class="footer-bottom" data-i18n="footer.copyright">
         &copy; 2025 ADIR Selection. All Rights Reserved.
       </div>
     </div>
   </footer>
 
+  <script src="translations.js"></script>
   <script src="catalog-data.js"></script>
   <script>
     // DOM refs
@@ -165,12 +167,20 @@
     var brandNames = Object.keys(brandCounts).sort();
 
     // Build brand radio list
-    var brandHtml = '<label class="brand-item"><input type="radio" name="brand" value=""' + (!urlBrand ? ' checked' : '') + '> All Brands <span class="brand-count">' + products.length + '</span></label>';
-    brandNames.forEach(function(b) {
-      var checked = (b === urlBrand) ? ' checked' : '';
-      brandHtml += '<label class="brand-item"><input type="radio" name="brand" value="' + b + '"' + checked + '> ' + b + ' <span class="brand-count">' + brandCounts[b] + '</span></label>';
-    });
-    brandListEl.innerHTML = brandHtml;
+    function buildBrandList() {
+      var brandHtml = '<label class="brand-item"><input type="radio" name="brand" value=""' + (!urlBrand ? ' checked' : '') + '> ' + t('catalog.allbrands') + ' <span class="brand-count">' + products.length + '</span></label>';
+      brandNames.forEach(function(b) {
+        var checked = (b === urlBrand) ? ' checked' : '';
+        brandHtml += '<label class="brand-item"><input type="radio" name="brand" value="' + b + '"' + checked + '> ' + b + ' <span class="brand-count">' + brandCounts[b] + '</span></label>';
+      });
+      brandListEl.innerHTML = brandHtml;
+
+      // Re-attach event listeners
+      document.querySelectorAll('input[name="brand"]').forEach(function(r) {
+        r.addEventListener('change', onFilterChange);
+      });
+    }
+    buildBrandList();
 
     // Render products
     function getSelectedBrand() {
@@ -209,10 +219,10 @@
       var start = (currentPage - 1) * PAGE_SIZE;
       var pageItems = filtered.slice(start, start + PAGE_SIZE);
 
-      countEl.textContent = 'Showing ' + (filtered.length === 0 ? 0 : start + 1) + '–' + (start + pageItems.length) + ' of ' + filtered.length + ' products';
+      countEl.textContent = t('catalog.showing') + ' ' + (filtered.length === 0 ? 0 : start + 1) + '–' + (start + pageItems.length) + ' ' + t('catalog.of') + ' ' + filtered.length + ' ' + t('catalog.products');
 
       if (filtered.length === 0) {
-        grid.innerHTML = '<div class="no-results"><h3>No products found</h3><p>Try adjusting your search or filters.</p></div>';
+        grid.innerHTML = '<div class="no-results"><h3>' + t('catalog.noresults.title') + '</h3><p>' + t('catalog.noresults.text') + '</p></div>';
         pagTopEl.innerHTML = '';
         pagBottomEl.innerHTML = '';
         return;
@@ -242,9 +252,9 @@
         return;
       }
       var pagHtml = '';
-      pagHtml += '<button class="pag-btn" onclick="goPage(' + (currentPage - 1) + ')"' + (currentPage === 1 ? ' disabled' : '') + '>&laquo; Previous</button>';
-      pagHtml += '<span class="pag-info">Page ' + currentPage + ' of ' + totalPages + '</span>';
-      pagHtml += '<button class="pag-btn" onclick="goPage(' + (currentPage + 1) + ')"' + (currentPage === totalPages ? ' disabled' : '') + '>Next &raquo;</button>';
+      pagHtml += '<button class="pag-btn" onclick="goPage(' + (currentPage - 1) + ')"' + (currentPage === 1 ? ' disabled' : '') + '>' + t('catalog.prev') + '</button>';
+      pagHtml += '<span class="pag-info">' + t('catalog.page') + ' ' + currentPage + ' / ' + totalPages + '</span>';
+      pagHtml += '<button class="pag-btn" onclick="goPage(' + (currentPage + 1) + ')"' + (currentPage === totalPages ? ' disabled' : '') + '>' + t('catalog.next') + '</button>';
       pagTopEl.innerHTML = pagHtml;
       pagBottomEl.innerHTML = pagHtml;
     }
@@ -271,9 +281,6 @@
 
     // Event listeners
     searchBox.addEventListener('input', onFilterChange);
-    document.querySelectorAll('input[name="brand"]').forEach(function(r) {
-      r.addEventListener('change', onFilterChange);
-    });
     document.querySelectorAll('input[name="audience"]').forEach(function(r) {
       r.addEventListener('change', onFilterChange);
     });
@@ -284,6 +291,12 @@
       document.querySelector('input[name="brand"][value=""]').checked = true;
       document.querySelector('input[name="audience"][value=""]').checked = true;
       onFilterChange();
+    });
+
+    // Re-render on language change
+    window.addEventListener('languageChanged', function() {
+      buildBrandList();
+      renderProducts();
     });
 
     // Initial render

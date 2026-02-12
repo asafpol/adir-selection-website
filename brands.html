@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -7,7 +7,7 @@
   <meta name="description" content="Explore the premium fragrance brands distributed by Adir Selection - Lattafa, Rasasi, Afnan, Al Haramain, Tom Ford, Gucci, Givenchy and more.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Heebo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -20,12 +20,13 @@
     <nav class="container">
       <div class="nav-brand"></div>
       <div class="nav-links" id="navLinks">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="brands.html" class="active">Brands</a>
-        <a href="catalog.html">Catalog</a>
-        <a href="contact.html">Contact</a>
+        <a href="index.html" data-i18n="nav.home">Home</a>
+        <a href="about.html" data-i18n="nav.about">About</a>
+        <a href="brands.html" class="active" data-i18n="nav.brands">Brands</a>
+        <a href="catalog.html" data-i18n="nav.catalog">Catalog</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
       </div>
+      <button class="lang-toggle" id="langToggle" onclick="toggleLanguage()" aria-label="Switch language">עב</button>
       <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
         <span></span><span></span><span></span>
       </button>
@@ -35,17 +36,17 @@
   <!-- PAGE HERO -->
   <section class="page-hero" style="padding-top: 220px;">
     <div class="page-hero-inner container">
-      <h1>Our Brands</h1>
+      <h1 data-i18n="brands.hero.title">Our Brands</h1>
     </div>
-    <p>Authorized distributor of world-renowned fragrance houses</p>
+    <p data-i18n="brands.hero.subtitle">Authorized distributor of world-renowned fragrance houses</p>
   </section>
 
   <!-- BRANDS -->
   <section class="section">
     <div class="container">
-      <h2 class="section-title fade-in">Premium Fragrance Houses</h2>
+      <h2 class="section-title fade-in" data-i18n="brands.section.title">Premium Fragrance Houses</h2>
       <div class="gold-line"></div>
-      <p class="section-subtitle fade-in">We proudly distribute an exclusive selection of the world's finest fragrance brands, from iconic luxury labels to leading Arabian perfumeries.</p>
+      <p class="section-subtitle fade-in" data-i18n="brands.section.subtitle">We proudly distribute an exclusive selection of the world's finest fragrance brands, from iconic luxury labels to leading Arabian perfumeries.</p>
       <div class="brands-grid fade-in">
         <a href="catalog.html?brand=Lattafa" class="brand-card"><img src="Website Material/Pictures/Brands/Lattafa.png" alt="Lattafa"></a>
         <a href="catalog.html?brand=RASASI" class="brand-card"><img src="Website Material/Pictures/Brands/rasasi.png" alt="Rasasi"></a>
@@ -67,32 +68,32 @@
   <!-- BRAND CATEGORIES -->
   <section class="section" style="background: var(--cream);">
     <div class="container">
-      <h2 class="section-title fade-in">Our Collection Spans</h2>
+      <h2 class="section-title fade-in" data-i18n="brands.categories.title">Our Collection Spans</h2>
       <div class="gold-line"></div>
       <div class="features features-light fade-in" style="margin-top: 40px;">
         <div class="feature">
           <div class="feature-icon">&#x1f30d;</div>
-          <h4>Arabian Perfumeries</h4>
-          <p>Lattafa, Rasasi, Afnan, Al Haramain, Rayhaan, Ard Al Zaafaran and more. Rich, long-lasting oriental fragrances.</p>
+          <h4 data-i18n="brands.cat.arabian.title">Arabian Perfumeries</h4>
+          <p data-i18n="brands.cat.arabian.text">Lattafa, Rasasi, Afnan, Al Haramain, Rayhaan, Ard Al Zaafaran and more. Rich, long-lasting oriental fragrances.</p>
         </div>
         <div class="feature">
           <div class="feature-icon">&#x2728;</div>
-          <h4>Luxury Designer Brands</h4>
-          <p>Tom Ford, Gucci, Givenchy. Iconic scents from the world's most prestigious fashion houses.</p>
+          <h4 data-i18n="brands.cat.luxury.title">Luxury Designer Brands</h4>
+          <p data-i18n="brands.cat.luxury.text">Tom Ford, Gucci, Givenchy. Iconic scents from the world's most prestigious fashion houses.</p>
         </div>
         <div class="feature">
           <div class="feature-icon">&#x1f48e;</div>
-          <h4>Niche & Specialty</h4>
-          <p>Armaf, Dumont, French Avenue, Atralia. Unique fragrances for the discerning customer.</p>
+          <h4 data-i18n="brands.cat.niche.title">Niche & Specialty</h4>
+          <p data-i18n="brands.cat.niche.text">Armaf, Dumont, French Avenue, Atralia. Unique fragrances for the discerning customer.</p>
         </div>
         <div class="feature">
           <div class="feature-icon">&#x1f3af;</div>
-          <h4>For Everyone</h4>
-          <p>Fragrances for men, women, and unisex options. Gift sets, individual bottles, and exclusive editions.</p>
+          <h4 data-i18n="brands.cat.everyone.title">For Everyone</h4>
+          <p data-i18n="brands.cat.everyone.text">Fragrances for men, women, and unisex options. Gift sets, individual bottles, and exclusive editions.</p>
         </div>
       </div>
       <div style="text-align: center; margin-top: 50px;">
-        <a href="catalog.html" class="hero-btn">Browse Full Catalog</a>
+        <a href="catalog.html" class="hero-btn" data-i18n="brands.browse.btn">Browse Full Catalog</a>
       </div>
     </div>
   </section>
@@ -100,9 +101,9 @@
   <!-- CTA -->
   <section class="cta-banner">
     <div class="container">
-      <h2>Want to Carry Our Brands?</h2>
-      <p>Contact us to learn about wholesale pricing and partnership opportunities.</p>
-      <a href="contact.html" class="cta-btn">Become a Partner</a>
+      <h2 data-i18n="cta.brands.title">Want to Carry Our Brands?</h2>
+      <p data-i18n="cta.brands.text">Contact us to learn about wholesale pricing and partnership opportunities.</p>
+      <a href="contact.html" class="cta-btn" data-i18n="cta.brands.btn">Become a Partner</a>
     </div>
   </section>
 
@@ -112,18 +113,18 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <img src="Website Material/Logo/Logo white.png" alt="ADIR Selection" class="footer-logo">
-          <p>Your trusted partner in fine fragrance distribution. We bring premium, niche, and designer perfumes to a selected customer base.</p>
+          <p data-i18n="footer.tagline">Your trusted partner in fine fragrance distribution. We bring premium, niche, and designer perfumes to a selected customer base.</p>
         </div>
         <div class="footer-col">
-          <h4>Pages</h4>
-          <a href="index.html">Home</a>
-          <a href="about.html">About Us</a>
-          <a href="brands.html">Our Brands</a>
-          <a href="catalog.html">Catalog</a>
-          <a href="contact.html">Contact</a>
+          <h4 data-i18n="footer.pages">Pages</h4>
+          <a href="index.html" data-i18n="footer.home">Home</a>
+          <a href="about.html" data-i18n="footer.about">About Us</a>
+          <a href="brands.html" data-i18n="footer.brands">Our Brands</a>
+          <a href="catalog.html" data-i18n="footer.catalog">Catalog</a>
+          <a href="contact.html" data-i18n="footer.contact">Contact</a>
         </div>
         <div class="footer-col">
-          <h4>Top Brands</h4>
+          <h4 data-i18n="footer.topbrands">Top Brands</h4>
           <a href="catalog.html?brand=Lattafa">Lattafa</a>
           <a href="catalog.html?brand=RASASI">Rasasi</a>
           <a href="catalog.html?brand=Afnan">Afnan</a>
@@ -131,18 +132,19 @@
           <a href="catalog.html?brand=Tom Ford">Tom Ford</a>
         </div>
         <div class="footer-col">
-          <h4>Contact</h4>
+          <h4 data-i18n="footer.contactheader">Contact</h4>
           <a href="mailto:sales@adirselection.com">sales@adirselection.com</a>
           <a href="tel:+97239297040">+972 (0) 3-9297040</a>
-          <a>Tel Aviv, Israel</a>
+          <a data-i18n="footer.location">Tel Aviv, Israel</a>
         </div>
       </div>
-      <div class="footer-bottom">
+      <div class="footer-bottom" data-i18n="footer.copyright">
         &copy; 2025 ADIR Selection. All Rights Reserved.
       </div>
     </div>
   </footer>
 
+  <script src="translations.js"></script>
   <script>
     document.getElementById('menuToggle').addEventListener('click', function() {
       document.getElementById('navLinks').classList.toggle('open');
